@@ -1,0 +1,16 @@
+.Button {
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border-radius: 400px;
+  width: fit-content;
+  transition: background-color 0.3s ease-out;
+}
+
+.Button.primary {
+  background-color: #4104db;
+  color: white;
+}
+
+.Button.primary:hover {
+  background-color: #2949e3;
+}

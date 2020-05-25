@@ -1,0 +1,12 @@
+.Title {
+  margin-bottom: 1rem;
+}
+
+.ActionButtons {
+  display: flex;
+  margin-left: 1rem;
+}
+
+.ActionButtons :first-child {
+  margin-right: 1rem;
+}

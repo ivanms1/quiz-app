@@ -1,0 +1,37 @@
+.SideBar {
+  position: fixed;
+  background-color: #4104db;
+  color: white;
+  display: flex;
+}
+
+.SideBarItem {
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  fill: white;
+  transition: transform 0.1s linear;
+}
+
+.SideBarItem:hover {
+  transform: scale(1.1);
+}
+
+.SideBarItem > p {
+  text-align: center;
+  font-size: 1rem;
+}
+
+@media (min-width: 800px) {
+  .SideBar {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    min-width: 6rem;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
