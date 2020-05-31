@@ -7,6 +7,7 @@ import Spinner from '../Spinner';
 import { useQuizState, useQuizDispatch } from '../QuizContext';
 
 import styles from './Quiz.module.css';
+import ProgressBar from '../ProgressBar';
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
@@ -45,6 +46,7 @@ const Quiz = () => {
   return (
     <div>
       <h1 className={styles.Title}>{category.name}</h1>
+
       {isQuizFinished ? (
         <div>
           <p className={styles.FinalMessage}>
@@ -55,7 +57,13 @@ const Quiz = () => {
           </Button>
         </div>
       ) : (
-        <Question question={questions[currentQuestionIndex]} />
+        <React.Fragment>
+          <ProgressBar
+            progress={currentQuestionIndex}
+            total={questions.length}
+          />
+          <Question question={questions[currentQuestionIndex]} />
+        </React.Fragment>
       )}
     </div>
   );
