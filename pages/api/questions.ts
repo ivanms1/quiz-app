@@ -14,7 +14,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { query } = req;
 
   const data = await fetch(
-    `https://opentdb.com/api.php?${createUrlRequest(query)}`
+    `https://opentdb.com/api.php?type=multiple${createUrlRequest(query)}`
   );
   const questions = await data.json();
   res.json(questions);

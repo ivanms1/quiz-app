@@ -9,7 +9,7 @@ const buttonTypes = {
   error: 'error',
 };
 
-interface ButtonProps {
+interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
   children: React.ReactNode;
   type: 'primary' | 'error';
   link?: boolean;
@@ -33,12 +33,12 @@ const Button = ({
     );
   }
   return (
-    <div
+    <button
       className={classNames(styles.Button, styles[buttonTypes[type]])}
       {...props}
     >
       {children}
-    </div>
+    </button>
   );
 };
 

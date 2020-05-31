@@ -1,0 +1,13 @@
+@media (min-width: 800px) {
+  .Title {
+    margin-bottom: 1.5rem;
+  }
+  .ActionBox {
+    display: flex;
+  }
+
+  .Select {
+    width: 400px;
+    margin-right: 1rem;
+  }
+}

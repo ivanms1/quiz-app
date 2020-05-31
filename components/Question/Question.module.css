@@ -1,0 +1,12 @@
+@media (min-width: 800px) {
+  .Question {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .Answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 0;
+  }
+}
