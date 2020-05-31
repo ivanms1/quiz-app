@@ -2,10 +2,11 @@ import React from 'react';
 import useSWR from 'swr';
 
 import Question from '../Question';
+import Button from '../Button';
+import Spinner from '../Spinner';
 import { useQuizState, useQuizDispatch } from '../QuizContext';
 
 import styles from './Quiz.module.css';
-import Button from '../Button';
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
@@ -34,7 +35,11 @@ const Quiz = () => {
   }
 
   if (currentQuestionIndex === null) {
-    return <p>Loading...</p>;
+    return (
+      <div className={styles.Loading}>
+        <Spinner />
+      </div>
+    );
   }
 
   return (
@@ -42,8 +47,10 @@ const Quiz = () => {
       <h1 className={styles.Title}>{category.name}</h1>
       {isQuizFinished ? (
         <div>
-          <h4>You've finished the quiz, this is your final score: {score}</h4>
-          <Button type='primary' link href='/'>
+          <p className={styles.FinalMessage}>
+            You've finished the quiz, this is your final score: {score}
+          </p>
+          <Button type='primary' kind='big' link href='/'>
             Back to Home
           </Button>
         </div>

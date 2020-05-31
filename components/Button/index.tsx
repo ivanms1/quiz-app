@@ -4,14 +4,10 @@ import classNames from 'classnames';
 import styles from './Button.module.css';
 import Link from 'next/link';
 
-const buttonTypes = {
-  primary: 'primary',
-  error: 'error',
-};
-
 interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
-  children: React.ReactNode;
-  type: 'primary' | 'error';
+  children?: React.ReactNode;
+  type: 'primary' | 'error' | 'custom';
+  kind?: 'big' | 'medium' | 'small';
   link?: boolean;
   href?: string;
 }
@@ -21,12 +17,21 @@ const Button = ({
   type,
   link = false,
   href,
+  kind = 'medium',
+  className,
   ...props
 }: ButtonProps) => {
   if (link && href) {
     return (
       <Link href={href}>
-        <div className={classNames(styles.Button, styles[buttonTypes[type]])}>
+        <div
+          className={classNames(
+            styles.Button,
+            styles[type],
+            styles[kind],
+            className
+          )}
+        >
           {children}
         </div>
       </Link>
@@ -34,7 +39,12 @@ const Button = ({
   }
   return (
     <button
-      className={classNames(styles.Button, styles[buttonTypes[type]])}
+      className={classNames(
+        styles.Button,
+        styles[type],
+        styles[kind],
+        className
+      )}
       {...props}
     >
       {children}

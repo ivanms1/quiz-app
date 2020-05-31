@@ -1,3 +1,21 @@
 .Title {
-  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.Loading {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+}
+
+.FinalMessage {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 800px) {
+  .Title {
+    margin-bottom: 1rem;
+  }
 }

@@ -10,22 +10,25 @@ interface QuestionProps {
 }
 
 const Question = ({ question }: QuestionProps) => {
-  const { totalQuestions, currentQuestionIndex } = useQuizState();
   const dispatch = useQuizDispatch();
   return (
     <div className={styles.ContainerQuestion}>
-      <p className={styles.Question}>{question.question}</p>
+      <p
+        className={styles.Question}
+        dangerouslySetInnerHTML={{ __html: question.question }}
+      />
       <div className={styles.Answers}>
-        {question.answers.map((question) => (
+        {question.answers.map((answer) => (
           <Button
+            kind='big'
+            className={styles.Answer}
             onClick={() =>
-              dispatch({ type: 'ANSWER_QUESTION', payload: question })
+              dispatch({ type: 'ANSWER_QUESTION', payload: answer })
             }
-            type='primary'
-            key={question}
-          >
-            {question}
-          </Button>
+            type='custom'
+            key={answer}
+            dangerouslySetInnerHTML={{ __html: answer }}
+          />
         ))}
       </div>
     </div>

@@ -19,7 +19,7 @@ const QuickStart = () => {
 
   return (
     <Layout>
-      <div>
+      <div className={styles.QuickStart}>
         {category && didGameStart ? (
           <QuizProvider
             category={{
