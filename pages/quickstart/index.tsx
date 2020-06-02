@@ -6,7 +6,7 @@ import Button from '../../components/Button';
 import Quiz from '../../components/Quiz';
 import { QuizProvider } from '../../components/QuizContext';
 
-import categories from '../constants/categories';
+import categories from '../../constants/categories';
 
 import styles from './quickstart.module.css';
 
@@ -40,7 +40,7 @@ const QuickStart = () => {
                 onChange={(val) => setCategory(val)}
                 options={categories}
               />
-              <Button onClick={() => setDidGameStart(true)} type='primary'>
+              <Button onClick={() => setDidGameStart(true)} kind='primary'>
                 Start
               </Button>
             </div>

@@ -13,11 +13,12 @@
   align-items: center;
   cursor: pointer;
   fill: white;
-  transition: transform 0.1s linear;
+  transition: background-color 0.1s linear;
+  padding: 1.5rem 0;
 }
 
-.SideBarItem:hover {
-  transform: scale(1.1);
+.SideBarItem.active {
+  background-color: #703eeb;
 }
 
 .SideBarItem > p {

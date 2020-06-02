@@ -14,10 +14,10 @@ export default function Home() {
       <div className={styles.HomePage}>
         <h1 className={styles.Title}>Welcome to the Quiz App</h1>
         <div className={styles.ActionButtons}>
-          <Button kind='big' type='primary' link href='/quickstart'>
+          <Button size='big' kind='primary' link href='/quickstart'>
             Quick Start
           </Button>
-          <Button kind='big' type='primary' link href='/custom'>
+          <Button size='big' kind='primary' link href='/custom'>
             Custom Quiz
           </Button>
         </div>

@@ -1,0 +1,34 @@
+.Title {
+  margin-bottom: 2rem;
+}
+
+.FormContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.FieldContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.FieldLabel {
+  min-width: 200px;
+}
+
+.Select {
+  min-width: 400px;
+}
+
+.StartButton {
+  margin-top: 1rem;
+  align-self: center;
+}
+
+@media (min-width: 800px) {
+  .FormContainer {
+    width: 50%;
+  }
+}

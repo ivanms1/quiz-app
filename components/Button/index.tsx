@@ -6,18 +6,20 @@ import Link from 'next/link';
 
 interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
   children?: React.ReactNode;
-  type: 'primary' | 'error' | 'custom';
-  kind?: 'big' | 'medium' | 'small';
+  className?: string;
+  kind: 'primary' | 'error' | 'custom';
+  size?: 'big' | 'medium' | 'small';
+  type?: 'button' | 'submit' | 'reset';
   link?: boolean;
   href?: string;
 }
 
 const Button = ({
   children,
-  type,
+  size,
   link = false,
   href,
-  kind = 'medium',
+  kind,
   className,
   ...props
 }: ButtonProps) => {
@@ -27,7 +29,7 @@ const Button = ({
         <div
           className={classNames(
             styles.Button,
-            styles[type],
+            styles[size],
             styles[kind],
             className
           )}
@@ -41,7 +43,7 @@ const Button = ({
     <button
       className={classNames(
         styles.Button,
-        styles[type],
+        styles[size],
         styles[kind],
         className
       )}

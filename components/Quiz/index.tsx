@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useSWR from 'swr';
 
 import Question from '../Question';
@@ -11,7 +11,8 @@ import ProgressBar from '../ProgressBar';
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
-const Quiz = () => {
+const Quiz = ({ resStartQuiz }) => {
+  const [notEnoughQuestions, setNotEnoughQuestions] = useState(false);
   const {
     category,
     questions,
@@ -26,13 +27,31 @@ const Quiz = () => {
     currentQuestionIndex === null ? `/api/questions${url}` : null,
     fetcher,
     {
-      onSuccess: (data) =>
-        dispatch({ type: 'SET_QUESTIONS', payload: data.results }),
+      onSuccess: (data) => {
+        if (data.response_code === 0) {
+          dispatch({ type: 'SET_QUESTIONS', payload: data.results });
+        } else {
+          setNotEnoughQuestions(true);
+        }
+      },
     }
   );
 
   if (error) {
     <p>ups an error happened please try again later</p>;
+  }
+
+  if (notEnoughQuestions) {
+    return (
+      <div>
+        <p className={styles.NoQuestions}>
+          We don't have enough questions for your query :(
+        </p>
+        <Button kind='primary' size='big' onClick={resStartQuiz}>
+          Back to settings
+        </Button>
+      </div>
+    );
   }
 
   if (currentQuestionIndex === null) {
@@ -46,13 +65,12 @@ const Quiz = () => {
   return (
     <div>
       <h1 className={styles.Title}>{category.name}</h1>
-
       {isQuizFinished ? (
         <div>
           <p className={styles.FinalMessage}>
             You've finished the quiz, this is your final score: {score}
           </p>
-          <Button type='primary' kind='big' link href='/'>
+          <Button kind='primary' size='big' link href='/'>
             Back to Home
           </Button>
         </div>

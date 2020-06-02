@@ -11,6 +11,11 @@ interface QuestionProps {
 
 const Question = ({ question }: QuestionProps) => {
   const dispatch = useQuizDispatch();
+
+  if (!question) {
+    return null;
+  }
+
   return (
     <div className={styles.ContainerQuestion}>
       <p
@@ -20,12 +25,12 @@ const Question = ({ question }: QuestionProps) => {
       <div className={styles.Answers}>
         {question.answers.map((answer) => (
           <Button
-            kind='big'
+            size='big'
             className={styles.Answer}
             onClick={() =>
               dispatch({ type: 'ANSWER_QUESTION', payload: answer })
             }
-            type='custom'
+            kind='custom'
             key={answer}
             dangerouslySetInnerHTML={{ __html: answer }}
           />
