@@ -12,7 +12,7 @@ import ProgressBar from '../ProgressBar';
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 interface QuizProps {
-  restartQuiz: () => void;
+  restartQuiz?: () => void;
 }
 
 const Quiz = ({ restartQuiz }: QuizProps) => {

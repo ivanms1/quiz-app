@@ -40,7 +40,7 @@ const QuickStart = () => {
               <Select
                 value={category}
                 className={styles.Select}
-                onChange={(val) => setCategory(val)}
+                onChange={(val: any) => setCategory(val)}
                 options={categories}
               />
               <Button

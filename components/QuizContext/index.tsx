@@ -67,7 +67,7 @@ function quizReducer(state: State, action: Action) {
           state.totalQuestions === state.currentQuestionIndex! + 1,
       };
     default: {
-      throw new Error(`Unhandled action type: ${action.type}`);
+      throw new Error(`Unhandled action`);
     }
   }
 }

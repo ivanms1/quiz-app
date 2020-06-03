@@ -4,14 +4,16 @@ import classNames from 'classnames';
 import styles from './Button.module.css';
 import Link from 'next/link';
 
-interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
+interface ButtonProps {
   children?: React.ReactNode;
   className?: string;
   kind: 'primary' | 'error' | 'custom';
+  onClick?: () => void;
   size?: 'big' | 'medium' | 'small';
   type?: 'button' | 'submit' | 'reset';
   link?: boolean;
   href?: string;
+  dangerouslySetInnerHTML?: { __html: string };
 }
 
 const Button = ({
