@@ -72,7 +72,9 @@ const Quiz = ({ restartQuiz }: QuizProps) => {
       {isQuizFinished ? (
         <div>
           <p className={styles.FinalMessage}>
-            You've finished the quiz, this is your final score: {score}
+            You've finished the quiz!
+            <br />
+            Score: {score}/{questions.length}
           </p>
           <Button kind='primary' size='medium' link href='/'>
             Back to Home
