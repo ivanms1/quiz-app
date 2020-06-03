@@ -4,12 +4,12 @@
   border-radius: 400px;
   width: fit-content;
   transition: background-color 0.3s ease-out;
-  border: none;
 }
 
 .Button.primary {
   background-color: #4104db;
   color: white;
+  border: none;
 }
 
 .Button.primary:hover {

@@ -14,7 +14,10 @@ const QuickStart = () => {
   const [category, setCategory] = useState<{
     value: number;
     label: string;
-  } | null>(null);
+  } | null>({
+    value: 9,
+    label: 'General Knowledge',
+  });
   const [didGameStart, setDidGameStart] = useState(false);
 
   return (
@@ -40,7 +43,11 @@ const QuickStart = () => {
                 onChange={(val) => setCategory(val)}
                 options={categories}
               />
-              <Button onClick={() => setDidGameStart(true)} kind='primary'>
+              <Button
+                className={styles.StartButton}
+                onClick={() => setDidGameStart(true)}
+                kind='primary'
+              >
                 Start
               </Button>
             </div>

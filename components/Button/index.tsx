@@ -16,7 +16,7 @@ interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
 
 const Button = ({
   children,
-  size,
+  size = 'medium',
   link = false,
   href,
   kind,

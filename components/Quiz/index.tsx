@@ -11,7 +11,11 @@ import ProgressBar from '../ProgressBar';
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
-const Quiz = ({ resStartQuiz }) => {
+interface QuizProps {
+  restartQuiz: () => void;
+}
+
+const Quiz = ({ restartQuiz }: QuizProps) => {
   const [notEnoughQuestions, setNotEnoughQuestions] = useState(false);
   const {
     category,
@@ -47,7 +51,7 @@ const Quiz = ({ resStartQuiz }) => {
         <p className={styles.NoQuestions}>
           We don't have enough questions for your query :(
         </p>
-        <Button kind='primary' size='big' onClick={resStartQuiz}>
+        <Button kind='primary' size='big' onClick={restartQuiz}>
           Back to settings
         </Button>
       </div>
@@ -70,7 +74,7 @@ const Quiz = ({ resStartQuiz }) => {
           <p className={styles.FinalMessage}>
             You've finished the quiz, this is your final score: {score}
           </p>
-          <Button kind='primary' size='big' link href='/'>
+          <Button kind='primary' size='medium' link href='/'>
             Back to Home
           </Button>
         </div>

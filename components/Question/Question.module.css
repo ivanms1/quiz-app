@@ -1,13 +1,21 @@
 .Question {
-  font-size: 2rem;
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.Answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Answer {
   background-color: rgba(255, 255, 255, 0.8);
   border: solid 1px black;
   transition: all 0.3s ease-in-out;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem !important;
 }
 
 .Answer:hover {
@@ -18,6 +26,7 @@
 @media (min-width: 800px) {
   .Question {
     font-size: 2rem;
+    margin-top: 1.5rem;
     margin-bottom: 2rem;
   }
 
@@ -26,5 +35,10 @@
     grid-template-columns: 1fr 1fr;
     justify-items: stretch;
     gap: 2rem 0;
+  }
+
+  .Answer {
+    margin-bottom: 0;
+    font-size: 1.5rem !important;
   }
 }

@@ -1,12 +1,14 @@
 .Title {
   font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .Loading {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -40%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
 }
 
 .NoQuestions {
@@ -15,12 +17,24 @@
 }
 
 .FinalMessage {
-  font-size: 2rem;
+  font-size: 1.7rem;
   margin-bottom: 1rem;
 }
 
 @media (min-width: 800px) {
   .Title {
     margin-bottom: 1rem;
+  }
+
+  .Loading {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    margin-top: 0;
+  }
+
+  .FinalMessage {
+    font-size: 2rem;
   }
 }

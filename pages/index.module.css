@@ -1,13 +1,51 @@
+.HomePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 1rem;
+}
 .Title {
-  margin-bottom: 1.5rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .ActionButtons {
   display: flex;
-  margin-left: 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ActionButton {
+  font-size: 1rem !important;
 }
 
 .ActionButtons :first-child {
-  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 800px) {
+  .HomePage {
+    padding: 0;
+    align-items: flex-start;
+    height: auto;
+  }
+  .Title {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+  }
+  .ActionButtons {
+    flex-direction: row;
+    margin-left: 1rem;
+  }
+  .ActionButton {
+    font-size: 1.5rem !important;
+  }
+  .ActionButtons :first-child {
+    margin-right: 1rem;
+    margin-bottom: 0;
+  }
 }

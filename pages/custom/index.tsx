@@ -25,7 +25,6 @@ const Custom = () => {
   return (
     <Layout>
       <div className={styles.Custom}>
-        <h1 className={styles.Title}>Create your custom quiz</h1>
         {categoryToStart ? (
           <QuizProvider
             category={{
@@ -34,85 +33,90 @@ const Custom = () => {
             }}
             url={url}
           >
-            <Quiz resStartQuiz={() => setCategoryToStart(null)} />
+            <Quiz restartQuiz={() => setCategoryToStart(null)} />
           </QuizProvider>
         ) : (
-          <Formik
-            initialValues={{
-              category: {
-                value: 9,
-                label: 'General Knowledge',
-              },
-              numberOfQuestions: { value: 10, label: 10 },
-              difficulty: { value: 'medium', label: 'Medium' },
-            }}
-            onSubmit={({ numberOfQuestions, category, difficulty }) => {
-              setUrl(
-                `?amount=${numberOfQuestions.value}&category=${category.value}&difficulty=${difficulty.value}`
-              );
+          <React.Fragment>
+            <h1 className={styles.Title}>Create your custom quiz</h1>
+            <Formik
+              initialValues={{
+                category: {
+                  value: 9,
+                  label: 'General Knowledge',
+                },
+                numberOfQuestions: { value: 10, label: 10 },
+                difficulty: { value: 'medium', label: 'Medium' },
+              }}
+              onSubmit={({ numberOfQuestions, category, difficulty }) => {
+                setUrl(
+                  `?amount=${numberOfQuestions.value}&category=${category.value}&difficulty=${difficulty.value}`
+                );
 
-              setCategoryToStart(category);
-            }}
-          >
-            {({ values, setFieldValue }) => (
-              <Form className={styles.FormContainer}>
-                <div className={styles.FieldContainer}>
-                  <label htmlFor='category' className={styles.FieldLabel}>
-                    Choose a category
-                  </label>
-                  <Field
-                    id='category'
-                    name='category'
-                    value={values.category}
-                    placeholder='All'
-                    component={Select}
-                    className={styles.Select}
-                    onChange={(val) => setFieldValue('category', val)}
-                    options={categories}
-                  />
-                </div>
-                <div className={styles.FieldContainer}>
-                  <label
-                    htmlFor='numberOfQuestions'
-                    className={styles.FieldLabel}
+                setCategoryToStart(category);
+              }}
+            >
+              {({ values, setFieldValue }) => (
+                <Form className={styles.FormContainer}>
+                  <div className={styles.FieldContainer}>
+                    <label htmlFor='category' className={styles.FieldLabel}>
+                      Choose a category
+                    </label>
+                    <Field
+                      id='category'
+                      name='category'
+                      value={values.category}
+                      placeholder='All'
+                      component={Select}
+                      className={styles.Select}
+                      onChange={(val) => setFieldValue('category', val)}
+                      options={categories}
+                    />
+                  </div>
+                  <div className={styles.FieldContainer}>
+                    <label
+                      htmlFor='numberOfQuestions'
+                      className={styles.FieldLabel}
+                    >
+                      Number of Questions
+                    </label>
+                    <Field
+                      id='numberOfQuestions'
+                      name='numberOfQuestions'
+                      value={values.numberOfQuestions}
+                      component={Select}
+                      className={styles.Select}
+                      onChange={(val) =>
+                        setFieldValue('numberOfQuestions', val)
+                      }
+                      options={numberOfQuestions}
+                    />
+                  </div>
+                  <div className={styles.FieldContainer}>
+                    <label htmlFor='difficulty' className={styles.FieldLabel}>
+                      Choose difficulty
+                    </label>
+                    <Field
+                      id='difficulty'
+                      name='difficulty'
+                      value={values.difficulty}
+                      component={Select}
+                      className={styles.Select}
+                      onChange={(val) => setFieldValue('difficulty', val)}
+                      options={difficulties}
+                    />
+                  </div>
+                  <Button
+                    type='submit'
+                    className={styles.StartButton}
+                    kind='primary'
+                    size='big'
                   >
-                    Number of Questions
-                  </label>
-                  <Field
-                    id='numberOfQuestions'
-                    name='numberOfQuestions'
-                    value={values.numberOfQuestions}
-                    component={Select}
-                    className={styles.Select}
-                    onChange={(val) => setFieldValue('numberOfQuestions', val)}
-                    options={numberOfQuestions}
-                  />
-                </div>
-                <div className={styles.FieldContainer}>
-                  <label htmlFor='difficulty' className={styles.FieldLabel}>
-                    Choose difficulty
-                  </label>
-                  <Field
-                    id='difficulty'
-                    name='difficulty'
-                    value={values.difficulty}
-                    component={Select}
-                    className={styles.Select}
-                    onChange={(val) => setFieldValue('difficulty', val)}
-                    options={difficulties}
-                  />
-                </div>
-                <Button
-                  type='submit'
-                  className={styles.StartButton}
-                  kind='primary'
-                  size='big'
-                >
-                  Start
-                </Button>
-              </Form>
-            )}
-          </Formik>
+                    Start
+                  </Button>
+                </Form>
+              )}
+            </Formik>
+          </React.Fragment>
         )}
       </div>
     </Layout>

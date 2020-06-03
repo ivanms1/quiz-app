@@ -1,25 +1,31 @@
+.Custom {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  justify-content: center;
+  height: 100%;
+}
+
 .Title {
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
 }
 
 .FormContainer {
   display: flex;
+  margin-top: 2rem;
   flex-direction: column;
-  width: 50%;
 }
 
 .FieldContainer {
   display: flex;
-  align-items: center;
+
+  flex-direction: column;
   margin-bottom: 1rem;
 }
 
-.FieldLabel {
-  min-width: 200px;
-}
-
 .Select {
-  min-width: 400px;
+  width: 100%;
 }
 
 .StartButton {
@@ -28,7 +34,29 @@
 }
 
 @media (min-width: 800px) {
+  .Custom {
+    padding: 0;
+    justify-content: flex-start;
+  }
+  .Title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
   .FormContainer {
     width: 50%;
+    margin-top: 0;
+  }
+
+  .FieldContainer {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .FieldLabel {
+    min-width: 200px;
+  }
+
+  .Select {
+    min-width: 400px;
   }
 }
